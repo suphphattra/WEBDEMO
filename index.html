@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pongpanot Web Demo</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Charm&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300&display=swap');
+        h1 {
+            font-family: 'Noto Sans Thai', sans-serif;
+        }
+        p {
+            font-family: 'Noto Sans Thai', sans-serif;
+        }
+        .thai {
+            font-family: 'Charm', cursive;
+        }
+        .center {
+            text-align: center;
+        }
+        .right {
+            text-align: right;
+        }
+        button {
+            width: 150px; height: 30px;
+            font-family: 'Sarabun', sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th {
+            border: 1px solid black;
+        }
+        td {
+            border: 1px solid black;
+        }
+        
+    </style>
+  </head>
+  <body>
+    <h1 class="center" id="header" style="font-size: 4vw; margin-bottom: 0em;">Yo, Wassup</h1>
+    <div class="center"><button type="button" onclick="document.getElementById('header').style.color='red'">เปลี่ยนสี</button></div>
+    <p class="thai center" style="font-size: 2vw; margin-bottom: 0;">ทดสอบภาษาไทย</p>
+    <p class="thai center" style="font-size: 1vw;">Pongpanot Sangkla พงศ์ปณต แสงกล้า</p>
+    <p class="center"><img src="assets/images/olafrizz.jpg" width="50%" height="50%" style="width: 700px; height: 500px; object-fit: cover; object-position: 20% 0;"></p>
+    
+    <p class="center" id="Date"></p>
+    <div><script>
+        document.getElementById("Date").textContent = new Date().toLocaleString("th-TH",{
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric",
+            second: "numeric",
+            hour12: false,
+            timeZone: "Asia/Bangkok"
+        });
+        
+    </script></div>
+            
+    <div class="center">
+        <button onclick="document.getElementById('myImage').src='assets/cat/Idle.png'">แงวยืน</button>
+        <img id="myImage" src="assets/cat/Idle.png" width="200px" height="200px">
+        <button onclick="document.getElementById('myImage').src='assets/cat/Slide.png'">แงวสไลด์</button>
+    </div>
+
+    <button onclick="showTable()">แสดงตาราง</button>
+    <button onclick="hideTable()">ซ่อนตาราง</button>
+    <table id="myTable" style="display: none">
+        <tr>
+            <td style="background-color: darkkhaki;">รายการที่1</td>
+            <td style="background-color: darkkhaki;">รายการที่2</td>
+            <td style="background-color: darkkhaki;">รายการที่3</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>16</td>
+            <td>32</td>
+        </tr>
+        <tr>
+            <td>64</td>
+            <td>128</td>
+            <td>256</td>
+        </tr>
+    </table>
+
+    <script>
+        function showTable() {
+            var table = document.getElementById("myTable");
+            table.style.display = "table";
+        }
+
+        function hideTable() {
+            var table = document.getElementById("myTable");
+            table.style.display = "none";
+        }
+    </script>
+
+<body>
+    <h1>คำนวณเลข</h1>
+    <label for="input1">Number #1</label><br>
+    <input id="input1"><br><br>
+
+    <label for="input2">Number #2</label><br>
+    <input id="input2"><br><br>
+
+    <label for="input3">Number #3</label><br>
+    <input id="input3"><br><br>
+
+    <button onclick="calculate()">Submit</button><br><br>
+
+    <div id="average"></div><br>
+    <div id="minValue"></div><br>
+    <div id="maxValue"></div><br>   
+</body>
+<script>
+    function calculate() {
+        var input1 = parseFloat(document.getElementById("input1").value)
+        var input2 = parseFloat(document.getElementById("input2").value)
+        var input3 = parseFloat(document.getElementById("input3").value)
+
+        var average = (input1 + input2 + input3)/3;
+
+        var minValue = Math.min(input1,input2,input3)
+
+        var maxValue = Math.max(input1,input2,input3)
+
+        document.getElementById("average").innerHTML = "ค่าเฉลี่ยคือ " + average.toFixed(2);
+        document.getElementById("maxValue").innerHTML = "ค่าสูงสุดคือ " + maxValue;
+        document.getElementById("minValue").innerHTML = "ค่าต่ำสุดคือ " + minValue;
+
+    }
+</script>
+    
+    
+    <div class="center" style="margin-top: 3em;"><button onclick="displayText()">NOTHING</button></div>
+    <div class="center" id="textField" style="display: none; color: red;">
+        I said nothing you IDIOT!
+    </div>
+    <script>
+        function displayText() {
+  var text = document.getElementById("textField");
+  text.style.display = "block";
+}
+    </script>
+
+    <div class="center" style="margin-top: 0.5em;"><a href="https://www.youtube.com/shorts/xyWKuFa-28A" target="_blank"><button>CLICK ME PLEASE</button></a></div>
+
+    <div id="Time"><script>
+        var timeDisplay = document.getElementById("Time");
+
+        function refreshTime() {
+            var dateString = new Date().toLocaleTimeString({timeZone: "Asia/Bangkok"});
+            var formattedString = dateString.replace(", ", " - ");
+            timeDisplay.innerHTML = formattedString;
+        }
+
+        setInterval(refreshTime, 1000);
+    </script></div>
+    <p></p>
+    <table border="1">
+        <tr>
+            <td>C1</td>
+            <td>C2</td>
+        </tr>
+        <tr>
+            <td>C3</td>
+            <td>C4</td>
+        </tr>
+        <tr>
+            <td>C5</td>
+            <td>C6</td>
+        </tr>
+    </table>
+  </body>
+</html>
